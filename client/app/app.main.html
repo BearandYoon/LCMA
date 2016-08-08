@@ -1,0 +1,20 @@
+<div class="app-layout">
+  <div class="app-sidebar scrollme" ng-scrollbar rebuild-on="rebuild:me"  rebuild-on-resize>
+    <header>
+      <div class="app-logo"></div>
+      <div class="app-logo-min"></div>
+    </header>
+    <div class="app-nav" ng-include="'components/navbar/navbar.html'"></div>
+  </div>
+
+
+  <!-- Topbar -->
+  <div class="app-topbar" ng-include="'components/topbar/topbar.html'"></div>
+  <!-- Topbar -->
+  <div class="app-titlebar">
+    <h4 ng-bind-html="$lcmaPage.getTitle()"></h4>
+  </div>
+
+  <!-- Add your site or application content here -->
+  <div ui-view="main" class="app-body"></div>
+</div>

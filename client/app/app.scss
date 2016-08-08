@@ -1,0 +1,38 @@
+$icon-font-path: "/vendor/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+
+// Component styles are injected through grunt
+// injector
+@import 'accounts/accounts.scss';
+@import 'auth/auth.scss';
+@import 'contracts/contracts.scss';
+@import 'invoices/invoices.scss';
+@import 'main/main.scss';
+@import 'order-services/order-services.scss';
+@import 'orders/orders.scss';
+@import 'users/users.scss';
+@import 'vendors/vendors.scss';
+@import 'modal/modal.scss';
+@import 'ui/_variables.scss';
+@import 'ui/animate.scss';
+@import 'ui/boostrap.scss';
+@import 'ui/grid.scss';
+@import 'ui/layout.scss';
+@import 'ui/style.scss';
+@import 'user-popover/user-popover.scss';
+// endinjector

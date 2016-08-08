@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create new building</h4>
+</div>
+<div class="modal-body">
+  <form name="BuildingForm" class="form-horizontal form-cozy mar-b">
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Building Name</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="name" type="text" class="form-control"
+               ng-model="building.name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Address 1</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="addr_1" type="text" class="form-control"
+               ng-model="building.addr_1">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Address 2</label>
+      <div class="col-sm-8">
+        <input ng-required="false" name="addr_2" type="text" class="form-control"
+               ng-model="building.addr_2">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Address 3</label>
+      <div class="col-sm-8">
+        <input ng-required="false" name="addr_3" type="text" class="form-control"
+               ng-model="building.addr_3">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">City, State</label>
+      <div class="col-sm-4">
+        <input ng-required="true" placeholder="City" name="addr_city" type="text" class="form-control"
+               ng-model="building.addr_city">
+      </div>
+      <div class="col-sm-4">
+        <input ng-required="true" placeholder="State" name="addr_state" type="text" class="form-control"
+               ng-model="building.addr_state">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Zip, Geocode</label>
+
+      <div class="col-sm-4">
+        <input ng-required="true" placeholder="Zip" name="addr_zip" type="text" class="form-control"
+               ng-model="building.addr_zip">
+      </div>
+
+      <div class="col-sm-4">
+        <input ng-required="true" placeholder="Geocode" name="geocode" type="text" class="form-control"
+               ng-model="building.geocode">
+      </div>
+    </div>
+
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="create(BuildingForm)">Create</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

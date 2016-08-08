@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Audit Details</h4>
+</div>
+<div class="modal-body">
+  <div class="app-data app-data-space invoice-facepage">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <dl class="floated">
+          <dt>Vendor</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.invoice.sp_name) || 'N/A'}}</span></dd>
+          <dt>Dispute ID</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.audit_id) || 'N/A'}}</span></dd>
+          <dt>Filed Date</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.created_at | date) || 'N/A'}}</span></dd>
+          <dt>Filed By</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.user.username ) || 'N/A'}}</span></dd>
+        </dl>
+      </div>
+      <div class="col-sm-6">
+        <dl class="floated">
+          <dt>Total Charges</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.total_amount | currency) || 'N/A'}}</span></dd>
+          <dt>Total Disputed</dt>
+          <dd class="value-box"><span>{{ (ctx.audit.disputed_amount | currency) || 'N/A'}}</span></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
