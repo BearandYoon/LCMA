@@ -1,0 +1,36 @@
+<div class="app-body-content app-body-with-toolbar">
+  <div class="app-toolbar row">
+    <div class="col-sm-3">
+      <button class="btn btn-primary" ng-click="ctx.addPermission()">
+        <i class="fa fa-plus"></i>
+      </button>
+      <div class="btn-group" uib-dropdown on-toggle="toggled(open)">
+        <a class="btn btn-default dropdown-toggle" uib-dropdown-toggle>
+          {{ctx.selectedModule.title || 'All Modules'}}
+          <span class="caret"></span>
+        </a>
+        <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+          <li>
+            <a ng-click="ctx.selectModule(null)">
+              <i class="fa fa-check pull-right" ng-if="!ctx.selectedModule"></i>
+              All Modules
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li ng-repeat="module in ctx.modules">
+            <a ng-click="ctx.selectModule(module)">
+              <i class="fa fa-check pull-right" ng-if="ctx.selectedModule === module"></i>
+              {{module.title}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a class="btn btn-default" ng-click="ctx.refresh()"><i class="fa fa-refresh"></i></a>
+    </div>
+    <div class="col-sm-9">
+    </div>
+  </div>
+  <span class="ui-grid-exporter-csv-link">&nbsp;</span>
+  <div class="grid app-data app-data-grid mar-all" ui-grid="ctx.gridOptions" ui-grid-selection ui-grid-exporter
+       ui-grid-pinning ui-grid-resize-columns></div>
+</div>

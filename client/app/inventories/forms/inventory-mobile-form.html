@@ -1,0 +1,98 @@
+<div class="row mar-b">
+  <div class="col-sm-1">
+    Int Plan ID
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="int_plan_id" ng-model="ctx.inventory.int_plan_id" type="text"
+           class="form-control text-right">
+  </div>
+  <div class="col-sm-1">
+    Plan Type
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-plan-type' name="plan_type" ng-model="ctx.inventory.plan_type_id"
+      ></lcma-dictionary-picker>
+  </div>
+  <div class="col-sm-1">
+    Mobile Nbr
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="mobile_nbr" ng-model="ctx.inventory.mobile_nbr" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    Emp ID
+  </div>
+  <div class="col-sm-2">
+    <lcma-employee-picker ng-model="ctx.inventory.emp_id"></lcma-employee-picker>
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    User Name
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="username" ng-model="ctx.inventory.username" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    Vendor
+  </div>
+  <div class="col-sm-2">
+    <lcma-vendor-picker ng-model="ctx.inventory.vendor_id"></lcma-vendor-picker>
+  </div>
+  <div class="col-sm-1">
+    Svc Type
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-svc-type' name="svc_type" ng-model="ctx.inventory.svc_type_id" ></lcma-dictionary-picker>
+  </div>
+  <div class="col-sm-1">
+    Status
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-status' name="status" ng-model="ctx.inventory.status_id"
+      ></lcma-dictionary-picker>
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Contract ID
+  </div>
+  <div class="col-sm-2">
+    <lcma-contract-picker ng-model="ctx.inventory.contract_id"></lcma-contract-picker>
+  </div>
+  <div class="col-sm-1">
+    Term Date
+  </div>
+  <div class="col-sm-2">
+    <input
+      uib-datepicker-popup="MM/dd/yyyy"
+      ng-model="ctx.inventory.term_date"
+      name="exp_date"
+      placeholder="Term Date"
+      init-date="{{ctx.inventory.term_date}}"
+      class="form-control input-sm text-right"
+      is-open="ctx.term_date_ui.opened"
+      ng-click="ctx.term_date_ui.opened=true"
+      />
+  </div>
+  <div class="col-sm-1">
+    Voice Pool ID
+  </div>
+  <div class="col-sm-2">
+    <input name="ip_shared_trk" ng-model="ctx.inventory.ip_shared_trk" type="text"
+           class="form-control text-right" />
+  </div>
+  <div class="col-sm-1">
+    Data Pool ID
+  </div>
+  <div class="col-sm-2">
+    <input  name="conc_calls" ng-model="ctx.inventory.conc_calls" type="text"
+           class="form-control text-right" />
+  </div>
+</div>
+
+

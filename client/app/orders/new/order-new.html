@@ -1,0 +1,166 @@
+<form name="OrderForm" class="form-horizontal">
+  <div class="app-body-content app-body-with-toolbar">
+    <div class="app-toolbar">
+      <div class="pull-right">
+        <button class="btn btn-primary" type="submit" ng-click="ctx.createOrder(OrderForm)">Create Order</button>
+        <button class="btn btn-default" type="submit" ng-click="ctx.cancelOrder()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="app-data app-data-space order-facepage">
+
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h2>
+            Order Header Info
+          </h2>
+        </div>
+        <div class="panel-body">
+          <form name="OrderForm" class="form-horizontal">
+            <div class="row mar-b">
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Vendor</label>
+                <div class="col-sm-8">
+                  <lcma-vendor-picker ng-model="ctx.order.vendor_id"></lcma-vendor-picker>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Order ID</label>
+                <div class="col-sm-8">
+                  <input type="text"
+                         class="form-control"
+                         ng-model="ctx.order.id"
+                         name="id"
+                         placeholder="Auto-generated"
+                         readonly>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Approve Date</label>
+                <div class="col-sm-8">
+                  <input class="form-control"
+                         uib-datepicker-popup
+                         ng-model="ctx.order.approve_date"
+                         is-open="approve_date.opened"
+                         ng-click="approve_date.opened = true"
+                         name="approve_date">
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Total Svc Items</label>
+                <div class="col-sm-8">
+                  <input type="number"
+                         class="form-control"
+                         ng-model="ctx.order.tot_svc_items"
+                         name="tot_svc_items">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row mar-b">
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Requester</label>
+                <div class="col-sm-8">
+                  <lcma-employee-picker ng-model="ctx.order.requester_id"></lcma-employee-picker>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Request Date</label>
+                <div class="col-sm-8">
+                  <input class="form-control"
+                         uib-datepicker-popup
+                         ng-model="ctx.order.request_date"
+                         is-open="request_date.opened"
+                         ng-click="request_date.opened = true"
+                         name="request_date">
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Approver</label>
+                <div class="col-sm-8">
+                  <lcma-employee-picker ng-model="ctx.order.approver_id"></lcma-employee-picker>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Total Est MRC</label>
+                <div class="col-sm-8">
+                  <input type="number"
+                         class="form-control"
+                         ng-model="ctx.order.est_mrc"
+                         name="tot_svc_items">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row mar-b">
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Processor</label>
+                <div class="col-sm-8">
+                  <lcma-employee-picker ng-model="ctx.order.processor_id"></lcma-employee-picker>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Create Date</label>
+                <div class="col-sm-8">
+                  <input class="form-control"
+                         uib-datepicker-popup
+                         ng-model="ctx.order.created_at"
+                         is-open="created_at.opened"
+                         ng-click="created_at.opened = true"
+                         name="created_at">
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Sent Date</label>
+                <div class="col-sm-8">
+                  <input class="form-control"
+                         uib-datepicker-popup
+                         ng-model="ctx.order.send_date"
+                         is-open="send_date.opened"
+                         ng-click="send_date.opened = true"
+                         name="send_date">
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <label class="col-sm-4 control-label">Total Est NRC</label>
+                <div class="col-sm-8">
+                  <input type="number"
+                         class="form-control"
+                         ng-model="ctx.order.est_nrc"
+                         name="tot_svc_items">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row mar-b">
+              <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Project</label>
+                <div class="col-sm-8">
+                  <select ng-model="ctx.order.project_id" class="form-control"></select>
+
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <button class="btn btn-info btn-sm">Add Project</button>
+              </div>
+
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

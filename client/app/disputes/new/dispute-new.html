@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add dispute for selected charges</h4>
+</div>
+<div class="modal-body">
+ <form name="noteForm">
+   <div class="form-group">
+     <label>Comment</label>
+     <textarea class="form-control" ng-model="note.content" rows="3" placeholder="Type comment" ng-required="true"></textarea>
+   </div>
+   <div class="form-group" ng-if="charges.length">
+     <div class="grid" ui-grid-selection ui-grid-edit ui-grid-resize-columns ui-grid="chargesGrid" style="height: 200px"></div>
+   </div>
+   <div class="gorm-group text-center" ng-if="!charges.length">
+     <div class="alert alert-warning">
+       No charges selected. Note will be linked to the entire invoice.
+     </div>
+   </div>
+ </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="create(noteForm)">Create</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,212 @@
+<div class="row mar-b">
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Ack Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.ack_date"
+             is-open="ack_date.opened"
+             ng-click="ack_date.opened = true"
+             name="approve_date">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">FOC Rec Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.foc_rec_date"
+             is-open="foc_rec_date.opened"
+             ng-click="foc_rec_date.opened = true"
+             name="foc_rec_date">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Des. Due Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.des_due_date"
+             is-open="des_due_date.opened"
+             ng-click="des_due_date.opened = true"
+             name="des_due_date">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Accepted By</label>
+    <div class="col-sm-7">
+      <input type="number"
+             class="form-control"
+             ng-model="ctx.service.accepted_by"
+             name="accepted_by">
+    </div>
+  </div>
+</div>
+
+<div class="row mar-b">
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">FOC Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.foc_date"
+             is-open="foc_date.opened"
+             ng-click="foc_date.opened = true"
+             name="foc_date">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Install Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.install_date"
+             is-open="install_date.opened"
+             ng-click="install_date.opened = true"
+             name="install_date">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">&nbsp;</label><br>
+    <label class="col-sm-8">
+      <input type="checkbox" ng-model="ctx.service.expedited_order"> Expedited Order
+    </label>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Accept Date</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             uib-datepicker-popup
+             ng-model="ctx.service.accept_date"
+             is-open="accept_date.opened"
+             ng-click="accept_date.opened = true"
+             name="accept_date">
+    </div>
+  </div>
+</div>
+
+<div class="row mar-b">
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">BAN</label>
+    <div class="col-sm-7">
+      <select class="form-control"
+              ng-model="ctx.service.account"
+              name="account"></select>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Ckt Type</label>
+    <div class="col-sm-7">
+      <select class="form-control"
+              ng-model="ctx.service.checkout_type"
+              name="checkout_type"></select>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Technology</label>
+    <div class="col-sm-7">
+      <lcma-dictionary-picker type-key='checkout-technology'
+                              name="technology"
+                              ng-model="ctx.service.technology"
+      ></lcma-dictionary-picker>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Ckt Bandwidth</label>
+    <div class="col-sm-7">
+      <lcma-dictionary-picker type-key='checkout-bandwidth'
+                              name="bandwidth"
+                              ng-model="ctx.service.bandwidth"
+      ></lcma-dictionary-picker>
+    </div>
+  </div>
+</div>
+
+<div class="row mar-b">
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Ckt Topology</label>
+    <div class="col-sm-7">
+
+      <lcma-dictionary-picker type-key='inventory-topology'
+                              name="topology"
+                              ng-model="ctx.service.topology"
+      ></lcma-dictionary-picker>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Est Tot MRC</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             type="number"
+             ng-model="ctx.service.estimate_total_mrc"
+             name="estimate_total_mrc">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label class="col-sm-5 control-label">Est Tot NRC</label>
+    <div class="col-sm-7">
+      <input class="form-control"
+             type="number"
+             ng-model="ctx.service.estimate_total_nrc"
+             name="estimate_total_nrc">
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+
+  </div>
+</div>
+
+<div class="row mar-b mar-t" ng-if="ctx.service.topology==='P2P'">
+  <div class="col-sm-6">
+    <h5>Site A</h5>
+    <div lcma-site-detail preview="true" site-id="ctx.service.sitea_id" class="site-detail" editing="true"/>
+  </div>
+  <div class="col-sm-6">
+    <h5>Site Z</h5>
+
+    <div lcma-site-detail preview="true" site-id="ctx.service.sitez_id" class="site-detail" editing="true"/>
+  </div>
+</div>
+
+<div class="row mar-b mar-t" ng-if="ctx.service.topology==='RNG'">
+  <br>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-sm-4 text-left">
+      <div lcma-site-detail site="selectedRingSite" class="site-detail" editing="true"/>
+    </div>
+    <div class="col-sm-4 text-left" style="padding-left: 0px;">
+      <button class="btn btn-primary btn-sm" ng-click="ctx.addServiceSite(selectedRingSite)">Add Selected Site</button>
+    </div>
+  </div>
+
+  <hr>
+  <div class="col-sm-12">
+
+    <div class="grid mar-all" ui-grid="ctx.serviceSitesGrid"></div>
+
+  </div>
+
+  <hr>
+</div>
+</div>
+
+<div class="row mar-b">
+  <div class="col-sm-12">
+    <!--<label>Service Notes</label>-->
+    <textarea name="notes" class="form-control" ng-model="ctx.service.notes" rows="5"></textarea>
+  </div>
+</div>

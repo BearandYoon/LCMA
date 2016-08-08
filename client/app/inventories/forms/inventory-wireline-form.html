@@ -1,0 +1,205 @@
+<div class="row mar-b">
+  <div class="col-sm-1">
+    Int Svc ID
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="int_svc_id" ng-model="ctx.inventory.int_svc_id" type="text"
+           class="form-control text-right">
+  </div>
+  <div class="col-sm-1">
+    SP Svc ID
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="sp_ckt_id" ng-model="ctx.inventory.sp_ckt_id" type="text"
+           class="form-control text-right">
+  </div>
+  <div class="col-sm-1">
+    2nd SP ID
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="second_sp_id" ng-model="ctx.inventory.second_sp_id" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    Vendor
+  </div>
+  <div class="col-sm-2">
+    <lcma-vendor-picker ng-model="ctx.inventory.vendor_id"></lcma-vendor-picker>
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Status
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-status' name="status" ng-model="ctx.inventory.status_id"
+    ></lcma-dictionary-picker>
+  </div>
+  <div class="col-sm-1">
+    BAN
+  </div>
+  <div class="col-sm-2">
+    <input name="ban" ng-model="ctx.inventory.ban" type="text"
+           class="form-control text-right" readonly>
+  </div>
+  <div class="col-sm-1">
+    SP BTN
+  </div>
+  <div class="col-sm-2">
+    <input name="sp_btn" ng-model="ctx.inventory.sp_btn" type="text"
+           class="form-control text-right">
+  </div>
+  <div class="col-sm-1">
+    Svc Type
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-svc-type' name="svc_type" ng-model="ctx.inventory.svc_type_id" ></lcma-dictionary-picker>
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Technology
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-technology' name="technology"
+                            ng-model="ctx.inventory.technology_id"
+    ></lcma-dictionary-picker>
+  </div>
+  <div class="col-sm-1">
+    Fac BW
+  </div>
+  <div class="col-sm-2">
+    <input name="fac_bw" ng-model="ctx.inventory.fac_bw" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    IP Shared Trk
+  </div>
+  <div class="col-sm-2">
+    <input name="ip_shared_trk" ng-model="ctx.inventory.ip_shared_trk" type="text"
+           class="form-control text-right" />
+  </div>
+  <div class="col-sm-1">
+    Conc Calls
+  </div>
+  <div class="col-sm-2">
+    <input  name="conc_calls" ng-model="ctx.inventory.conc_calls" type="text"
+           class="form-control text-right" />
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Site
+  </div>
+  <div class="col-sm-2">
+    TDM
+  </div>
+  <div class="col-sm-1">
+    Contract ID
+  </div>
+  <div class="col-sm-2">
+    <select class="form-control" ng-options="contract.id as contract.name for contract in ctx.contracts"
+            ng-model="ctx.inventory.contract_id" ></select>
+  </div>
+  <div class="col-sm-1">
+    Est. MRC
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="est_mrc" ng-model="ctx.inventory.est_mrc" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    Est. NRC
+  </div>
+  <div class="col-sm-2">
+    <input ng-required="true" name="est_nrc" ng-model="ctx.inventory.est_nrc" type="text"
+           class="form-control text-right" >
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Term
+  </div>
+  <div class="col-sm-2">
+    <input  name="term" ng-model="ctx.inventory.term" type="text"
+           class="form-control text-right" >
+  </div>
+  <div class="col-sm-1">
+    Exp Date
+  </div>
+  <div class="col-sm-2">
+    <input
+      uib-datepicker-popup="MM/dd/yyyy"
+      ng-model="ctx.inventory.exp_date"
+      name="exp_date"
+      placeholder="Exp Date"
+      init-date="{{ctx.inventory.exp_date}}"
+      class="form-control input-sm text-right"
+      is-open="ctx.exp_date_ui.opened"
+      ng-click="ctx.exp_date_ui.opened=true"
+      />
+  </div>
+  <div class="col-sm-1">
+    Install Date
+  </div>
+  <div class="col-sm-2">
+    <input
+      uib-datepicker-popup="MM/dd/yyyy"
+      ng-model="ctx.inventory.install_date"
+      name="install_date"
+      placeholder="Install Date"
+      init-date="{{ctx.inventory.install_date}}"
+      class="form-control input-sm text-right"
+      is-open="ctx.install_date_ui.opened"
+      ng-click="ctx.install_date_ui.opened=true"
+      >
+  </div>
+  <div class="col-sm-1">
+    Disc Date
+  </div>
+  <div class="col-sm-2">
+    <input
+      uib-datepicker-popup="MM/dd/yyyy"
+      ng-model="ctx.inventory.disc_date"
+      name="disc_date"
+      placeholder="Disc Date"
+      init-date="{{ctx.inventory.disc_date}}"
+      class="form-control input-sm text-right"
+      is-open="ctx.disc_date_ui.opened"
+      ng-click="ctx.disc_date_ui.opened=true"
+      />
+  </div>
+</div>
+
+<div class="row mar-t">
+  <div class="col-sm-1">
+    Prim/Failover
+  </div>
+  <div class="col-sm-2">
+    <lcma-dictionary-picker type-key='inventory-prim-failover' name="prim_failover" ng-model="ctx.inventory.prim_failover_id"></lcma-dictionary-picker>
+  </div>
+  <div class="col-sm-1">
+    Fail Rel Svc
+  </div>
+  <div class="col-sm-2">
+    <input name="fail_rel_svc" ng-model="ctx.inventory.fail_rel_svc" type="text"
+           class="form-control text-right" />
+  </div>
+  <div class="col-sm-1">
+    Rel Svc
+  </div>
+  <div class="col-sm-2">
+    <input name="rel_svc" ng-model="ctx.inventory.rel_svc" type="text"
+           class="form-control text-right" />
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+</div>
+
+
+

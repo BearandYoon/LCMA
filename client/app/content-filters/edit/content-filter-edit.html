@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update Content Filter</h4>
+</div>
+<div class="modal-body">
+  <form name="FilterForm" class="form-horizontal form-cozy mar-b">
+
+    <div class="form-group">
+      <span class="col-sm-4">Module</span>
+      <div class="col-sm-6">
+        <input type="text" ng-model="filter.module.title" class="form-control" ng-required="true" readonly>
+      </div>
+    </div>
+
+    <div class="form-group pad-10-b separator-h">
+      <span class="col-sm-4">Title</span>
+      <div class="col-sm-6">
+        <input type="text" ng-model="filter.title" class="form-control" placeholder="(optional)">
+      </div>
+    </div>
+
+    <!-- pad-10-b separator-h-->
+    <div class="form-group pad-10-t text-center" ng-if="!filter.module">
+      Select module you want to add filter for.
+    </div>
+    <div class="form-group pad-10-t" ng-if="filter.module">
+      <div class="col-sm-12">
+        <label>Filter Setup</label>
+      </div>
+      <div class="col-sm-12 pad-10-t form-inline">
+       <!-- {{filterContext}}-->
+        <lcma-advanced-filter properties="filter.module.properties" ng-model="filterContext"></lcma-advanced-filter>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button ng-disabled="!FilterForm.$valid" class="btn btn-primary" type="button" ng-click="update(FilterForm)">Update Filter</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

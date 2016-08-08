@@ -1,0 +1,127 @@
+<form name="InventoryForm" class="form-horizontal">
+  <div class="app-body-content app-body-with-toolbar">
+    <div class="app-toolbar">
+      <div class="pull-right">
+        <button class="btn btn-primary" type="submit" ng-click="ctx.updateInventory(InventoryForm)">Save Inventory Info
+        </button>
+
+      </div>
+    </div>
+
+    <div class="app-data app-data-space inventory-facepage">
+
+      <div class="panel panel-default" ng-if =" 'ckt' === ctx.inventory.type.value ">
+        <div class="panel-heading clearfix">
+          <h2>
+            Circuit Info
+          </h2>
+        </div>
+        <div class="panel-body">
+          <form name="InventoryForm" class="form-horizontal">
+            <ng-include src="'app/inventories/forms/inventory-circuit-form.html'"></ng-include>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if =" 'wireline' === ctx.inventory.type.value ">
+        <div class="panel-heading clearfix">
+          <h2>
+            Voice Service Info
+          </h2>
+        </div>
+        <div class="panel-body">
+          <form name="InventoryForm" class="form-horizontal">
+            <ng-include src="'app/inventories/forms/inventory-wireline-form.html'"></ng-include>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if =" 'mobile' === ctx.inventory.type.value ">
+        <div class="panel-heading clearfix">
+          <h2>
+            Wireless Plan Info
+          </h2>
+        </div>
+        <div class="panel-body">
+          <form name="InventoryForm" class="form-horizontal">
+            <ng-include src="'app/inventories/forms/inventory-mobile-form.html'"></ng-include>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if="ctx.inventory.topology_id==='P2P'">
+        <div class="panel-heading clearfix">
+          <h2>
+            Site A/Z
+          </h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <h5>Site A</h5>
+              <div lcma-site-detail preview="true" site-id="ctx.inventory.site_a_id" class="site-detail"
+                   editing="true"/>
+            </div>
+            <div class="col-sm-6">
+              <h5>Site Z</h5>
+
+              <div lcma-site-detail preview="true" site-id="ctx.inventory.site_z_id" class="site-detail"
+                   editing="true"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if="ctx.inventory.topology_id==='RNG'">
+        <div class="panel-heading clearfix">
+          <div class="row">
+            <div class="col-sm-9">
+              <h2>
+                Site Ring
+              </h2>
+            </div>
+            <div class="col-sm-3">
+              <ui-select ng-model="ctx.selectionSite"
+                         on-select="ctx.addSite($item, $model)">
+                <ui-select-match>
+                  <span ng-bind="$select.selected.site_id"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="site in (ctx.sites | filter: $select.search) track by site.id">
+                  <span ng-bind="site.site_id"></span>
+                </ui-select-choices>
+              </ui-select>
+
+              <!--<div style="padding-top: 15px;" class="pull-right">-->
+                <!--<div class="col-sm-8">-->
+                  <!-- -->
+                  <!--<ui-select ng-model="ctx.selectionSite"-->
+                             <!--on-select="ctx.addSite($item, $model)">-->
+                    <!--<ui-select-match>-->
+                      <!--<span ng-bind="$select.selected.site_id"></span>-->
+                    <!--</ui-select-match>-->
+                    <!--<ui-select-choices repeat="site in (ctx.sites | filter: $select.search) track by site.id">-->
+                      <!--<span ng-bind="site.site_id"></span>-->
+                    <!--</ui-select-choices>-->
+                  <!--</ui-select>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4 text-left">-->
+                  <!--&lt;!&ndash;<button class="btn btn-primary btn-sm" ng-click="ctx.addSite(selectedRingSite)">Add Selected&ndash;&gt;-->
+                    <!--&lt;!&ndash;Site&ndash;&gt;-->
+                  <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                <!--</div>-->
+            </div>
+
+          </div>
+        </div>
+        <div class="panel-body panel-body-cozy">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="grid mar-all" ui-grid="ctx.sitesGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update Vendor</h4>
+</div>
+<div class="modal-body">
+  <form name="VendorForm">
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control"
+             ng-model="vendor.name"
+             name="name"
+             ng-required="true">
+      <div ng-messages="VendorForm.name.$error" ng-show="VendorForm.name.$touched" role="alert">
+        <div ng-message="required">You didn't enter vendor name.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Code</label>
+      <input class="form-control"
+             ng-model="vendor.code"
+             name="code"
+             ng-required="true">
+
+      <div ng-messages="VendorForm.code.$error" ng-show="VendorForm.code.$touched" role="alert">
+        <div ng-message="required">You didn't enter vendor code.</div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="update(VendorForm)">Update</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

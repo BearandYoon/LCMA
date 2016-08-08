@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">Dispute Details</h4>
+</div>
+<div class="modal-body">
+  <div class="app-data app-data-space invoice-facepage">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <dl class="floated">
+          <dt>Vendor</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.invoice.sp_name) || 'N/A'}}</span></dd>
+          <dt>Dispute ID</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.dispute_id) || 'N/A'}}</span></dd>
+          <dt>Filed Date</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.created_at | date) || 'N/A'}}</span></dd>
+          <dt>Filed By</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.user.username ) || 'N/A'}}</span></dd>
+        </dl>
+      </div>
+      <div class="col-sm-6">
+        <dl class="floated">
+          <dt>Total Charges</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.total_amount | currency) || 'N/A'}}</span></dd>
+          <dt>Total Disputed</dt>
+          <dd class="value-box"><span>{{ (ctx.dispute.disputed_amount | currency) || 'N/A'}}</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h2>Charges to be Disputed</h2>
+      </div>
+      <div class="panel-body panel-body-cozy">
+        <div class="grid" ui-grid-selection ui-grid="ctx.disputeChargesGrid" style="height: 200px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-link" type="button" ng-click="close()">Close</button>
+</div>

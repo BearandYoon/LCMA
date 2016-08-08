@@ -1,0 +1,95 @@
+<div class="app-body-content app-body-with-toolbar">
+  <div class="app-toolbar">
+    <div class="btn-group pull-right">
+      <button ng-disabled="!ctx.account" ng-click="ctx.editAccount()" class="btn btn-default" type="button">Edit Account</button>
+      <button ng-disabled="!ctx.account" ng-click="ctx.deleteAccount()" class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+    </div>
+  </div>
+  <div class="app-data app-data-space invoice-facepage">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix"><h2>Account Header Info</h2></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-5">
+            <dl class="floated">
+              <dt>Unique ID</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.id}}
+              </dd>
+              <dt>Vendor</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.vendor || 'N/A'}}
+              </dd>
+              <dt>Account</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.account_no || 'N/A'}}
+              </dd>
+              <dt>Status</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.status.value || 'N/A'}}
+
+              </dd>
+            </dl>
+
+          </div>
+          <div class="col-sm-5">
+            <dl class="floated">
+              <dt>Vendor Alias</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.vendor_alias || 'N/A'}}
+              </dd>
+              <dt>AP Vendor ID</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.ap_vendor_id || 'N/A'}}
+              </dd>
+              <dt>Bill Cycle</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.billing_cycle || 'N/A'}}
+
+              </dd>
+              <dt>Late Bill Log Days</dt>
+              <dd class="value-box text-right">
+                {{ ctx.account.late_bill_log_days || 'N/A'}}
+              </dd>
+            </dl>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h2>Invoice Trend</h2>
+      </div>
+      <div class="panel-body">
+
+      <div class="mce-placeholder text-center">Chart goes here</div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h2>Loaded Invoices</h2>
+      </div>
+      <div class="panel-body">
+        <div class="clearfix">
+          <div class="pull-right mar-b">
+            <a ng-click="ctx.clearInvoicesFilters()" class="btn btn-default">
+              <i class="icon-filter-clear"></i>
+            </a>
+          </div>
+        </div>
+
+        <div style="height: 250px;" class="grid" ui-grid="ctx.invoicesGrid" ui-grid-selection ui-grid-exporter ui-grid-pinning ui-grid-resize-columns></div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+</div>

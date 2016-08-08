@@ -1,0 +1,100 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create new Site</h4>
+</div>
+<div class="modal-body">
+  <form name="SiteForm" class="form-horizontal form-cozy mar-b">
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Site ID</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="site_id" ng-model="site.site_id" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Vendor</label>
+      <div class="col-sm-8">
+        <select class="form-control"
+                name="vendor_id"
+                ng-options="vendor.id as vendor.name for vendor in vendors"
+                ng-model="site.vendor_id"
+        >
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Building</label>
+      <div class="col-sm-8">
+        <select class="form-control"
+                name="building_id"
+                ng-options="building.id as building.name for building in buildings"
+                ng-model="site.building_id"
+        >
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Site Type</label>
+      <div class="col-sm-8">
+        <select class="form-control" name="type"
+                ng-options="type.key as type.value for type in types"
+                ng-model="site.type_id"
+                ng-required="true">
+
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label class="col-sm-4 control-label">Address 1</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="address1" type="text" class="form-control"
+               ng-model="site.address1">
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label class="col-sm-4 control-label">Address 2</label>
+      <div class="col-sm-8">
+        <input ng-required="false" name="address2" type="text" class="form-control"
+               ng-model="site.address2">
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label class="col-sm-4 control-label">Address 3</label>
+      <div class="col-sm-8">
+        <input ng-required="false" name="address3" type="text" class="form-control"
+               ng-model="site.address3">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+
+      <label class="col-sm-4 control-label">City, State, Zip</label>
+      <div class="col-sm-3">
+        <input ng-required="true" placeholder="City" name="city" type="text" class="form-control"
+               ng-model="site.city">
+      </div>
+      <div class="col-sm-2">
+        <input ng-required="true" placeholder="State" name="state" type="text" class="form-control"
+               ng-model="site.state">
+      </div>
+      <div class="col-sm-3">
+        <input ng-required="true" placeholder="Zip" name="zip" type="text" class="form-control"
+               ng-model="site.zip">
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="create(SiteForm)">Create</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

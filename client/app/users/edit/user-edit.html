@@ -1,0 +1,93 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update User Details</h4>
+</div>
+<div class="modal-body">
+  <form name="UserForm" class="form-horizontal form-cozy mar-b">
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Username</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="username" ng-model="user.username" type="text"
+               class="form-control" disabled>
+        <div ng-messages="UserForm.username.$error" ng-show="UserForm.username.$touched" role="alert">
+          <div ng-message="required">You didn't enter valid username.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Email</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="email" type="email" class="form-control" ng-model="user.email" >
+        <div ng-messages="UserForm.email.$error" ng-show="UserForm.email.$touched" role="alert">
+          <div ng-message="required">You didn't enter valid email.</div>
+          <div ng-message="email">You didn't enter valid email.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">First Name</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="first_name" type="text" class="form-control"
+               ng-model="user.first_name">
+        <div ng-messages="UserForm.first_name.$error" ng-show="UserForm.first_name.$touched" role="alert">
+          <div ng-message="required">Please provide first name.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Last Name</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="last_name" type="text" class="form-control"
+               ng-model="user.last_name">
+        <div ng-messages="UserForm.last_name.$error" ng-show="UserForm.last_name.$touched" role="alert">
+          <div ng-message="required">Please provide last name.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Mobile Number</label>
+      <div class="col-sm-8">
+        <input ng-required="false" name="mobile_number" type="text" class="form-control"
+               ng-model="user.mobile_number">
+      </div>
+    </div>
+    <div class="form-group separator-h pad-10-b">
+      <label class="col-sm-4 control-label">Active</label>
+      <div class="col-sm-8">
+        <toggle-switch on-label="Yes" off-label="No" ng-model="user.is_active"></toggle-switch>
+      </div>
+    </div>
+
+    <div class="pad-10-b pad-10-t">
+      <div class="form-group">
+        <div class="col-sm-6">
+          <h5>Roles</h5>
+          <div class="form-group" ng-repeat="role in roles">
+            <label class="col-sm-4 control-label">{{role.name}}</label>
+            <div class="col-sm-8">
+              <toggle-switch on-label="On" off-label="Off" ng-model="selectedRoles[role.id]"></toggle-switch>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <button ngf-select ng-click="EditPicture()" ng-model="picFile" accept="image/*">
+            Edit Picture
+          </button>
+          <img ng-show="!showCropImage" class="user_avatar" data-ng-src="{{user.avatar}}"/>
+          <div ng-show="showCropImage" ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+            <img-crop image="picFile | ngfDataUrl"
+                      result-image="avatar_temp">
+            </img-crop>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="update(UserForm)">Update</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

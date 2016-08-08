@@ -1,0 +1,156 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create new equipment</h4>
+</div>
+<div class="modal-body">
+  <form name="EquipmentForm" class="form-horizontal form-cozy mar-b">
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Site ID</label>
+      <div class="col-sm-8">
+        <select class="form-control" name="site_id"
+                ng-options="site.id as site.site_id for site in sites"
+                ng-model="equipment.site_id"
+                ng-required="true">
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Site Name</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="site_name" ng-model="equipment.site_name" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Site Type</label>
+      <div class="col-sm-8">
+        <select class="form-control" name="site_type"
+                ng-options="type.key as type.value for type in types"
+                ng-model="equipment.site_type"
+                ng-required="true">
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Equipment Type</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="type" ng-model="equipment.equip_type" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Equipment Maker</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="maker" ng-model="equipment.equip_maker" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Equipment Model</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="model" ng-model="equipment.equip_model" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Equipment Serial</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="serial" ng-model="equipment.equip_serial" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Acquisition Date</label>
+      <div class="col-sm-8">
+        <input
+          ng-required="true"
+          ng-model="equipment.acq_date"
+          name="acq_date"
+          uib-datepicker-popup
+          placeholder="Select date"
+          init-date="{{equipment.acq_date}}"
+          class="form-control input-sm"
+          is-open="acq_date_ui.opened"
+          ng-click="acq_date_ui.opened=true">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Vendor ID</label>
+      <div class="col-sm-8">
+        <select class="form-control"
+                ng-required="true"
+                name="vendor_id"
+                ng-options="vendor.id as vendor.name for vendor in vendors"
+                ng-model="equipment.vendor_id">
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Contract ID</label>
+      <div class="col-sm-8">
+        <select class="form-control"
+                ng-required="true"
+                name="contract_id"
+                ng-options="contract.id as contract.name for contract in contracts"
+                ng-model="equipment.contract_id">
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Building Name</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="building_name" ng-model="equipment.building_name" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Building Address</label>
+      <div class="col-sm-8">
+        <input ng-required="true" name="address" type="text" class="form-control"
+               ng-model="equipment.building_address">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Floor, Room</label>
+      <div class="col-sm-4">
+        <input ng-required="true" name="floor" ng-model="equipment.floor" type="text"
+               class="form-control">
+      </div>
+      <div class="col-sm-4">
+        <input ng-required="true" name="room" ng-model="equipment.room" type="text"
+               class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Building City, State, Zip</label>
+      <div class="col-sm-3">
+        <input ng-required="true" placeholder="City" name="city" type="text" class="form-control"
+               ng-model="equipment.building_city">
+      </div>
+      <div class="col-sm-2">
+        <input ng-required="true" placeholder="State" name="state" type="text" class="form-control"
+               ng-model="equipment.building_state">
+      </div>
+      <div class="col-sm-3">
+        <input ng-required="true" placeholder="Zip" name="zip" type="text" class="form-control"
+               ng-model="equipment.building_zip">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="create(EquipmentForm)">Create</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>

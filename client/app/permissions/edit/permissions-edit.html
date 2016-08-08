@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h4 class="modal-title">Permission Edit</h4>
+</div>
+<div class="modal-body">
+  <form name="permissionForm" class="form-horizontal form-cozy mar-b">
+
+    <div class="row pad-10-b separator-h">
+      <div class="col-sm-6">
+        <div class="form-group">
+
+          <span class="col-sm-4">Role</span>
+          <div class="col-sm-8">
+            <span class="badge">{{permission.role.name}}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <span class="col-sm-4">Module</span>
+          <div class="col-sm-6">
+            <span class="badge">{{permission.module.title}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row pad-10-t separator-h">
+
+      <div class="col-sm-6">
+        <h5>Actions</h5>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <h5 class="col-sm-2">Filters</h5>
+          <div class="col-sm-6">
+            <select class="form-control"
+                    name="module"
+                    ng-model="selectedFilter"
+                    ng-required="false"
+                    ng-change="addFilter(selectedFilter)"
+                    ng-options="filter as filter.title for filter in filters"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row pad-10-t">
+      <div class="col-sm-6">
+        <div class="form-group" ng-repeat="action in permission.module.actions">
+          <span class="col-sm-3">{{action}}</span>
+          <div class="col-sm-6">
+
+            <toggle-switch on-label="Allow" off-label="Deny" ng-model="permissions[action]"></toggle-switch>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <span class="badge" ng-repeat="filter in permission.filters">
+              <i ng-click="removeFilter(filter, $index)" class="fa fa-trash pull-right"></i>
+              {{filter.title || 'Untitled'}}
+            </span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="update(permissionForm)">Update</button>
+  <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+</div>
