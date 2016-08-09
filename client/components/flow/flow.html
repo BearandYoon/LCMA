@@ -1,0 +1,15 @@
+<ul class="wiz-header">
+  <li ng-repeat="item in scheme">
+    <a ng-class="{'prev-step' : currentStep > $index, 'current-step' : currentStep === $index, 'next-step' : currentStep < $index}" ng-if="!item.actions.length">{{item.name}}</a>
+    <div class="btn-group dropdown" uib-dropdown ng-if="item.actions.length" dropdown-append-to-body="true">
+      <a ng-class="{'prev-step' : currentStep > $index, 'current-step' : currentStep === $index, 'next-step' : currentStep < $index}" class="dropdown-toggle" uib-dropdown-toggle >
+        {{item.name}}
+      </a>
+      <ul class="uib-dropdown-menu" aria-labelledby="invoice-actions-dropdown">
+        <li ng-repeat="action in item.actions">
+          <a ng-click="executeAction(item, action)">{{action.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,83 @@
+<div class="row mar-b">
+  <div class="col-sm-4 text-right">
+    Select Site
+  </div>
+  <div class="col-sm-5 text-right">
+    <ui-select ng-model="selection.value"
+               on-select="onSelect($item, $model)">
+      <ui-select-match>
+        <span ng-bind="$select.selected.site_id"></span>
+      </ui-select-match>
+      <ui-select-choices repeat="site in (sites | filter: $select.search) track by site.id">
+        <span ng-bind="site.site_id"></span>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+  <div class="col-sm-3 text-left form-inline">
+      <div class="btn-group">
+        <span class="input-group-addon" ng-click="searchSite()"><i class="fa fa-search"></i></span>
+        <span class="input-group-addon" ng-click="addSite()"><i class="fa fa-plus"></i></span>
+      </div>
+  </div>
+</div>
+<div ng-if="preview">
+  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      Floor/Room
+    </div>
+    <div class="col-sm-8 form-inline">
+      <input name="id" class="form-control" ng-model="site.floor" type="text" readonly>
+      <input name="id" ng-model="site.room" type="text" readonly
+             class="form-control">
+    </div>
+  </div>
+<!--  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      Site Type
+    </div>
+    <div class="col-sm-8 text-left">
+      <input name="id" ng-model="site.site_type" type="text" readonly
+             class="form-control">
+    </div>
+  </div>-->
+  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      Addr1
+    </div>
+    <div class="col-sm-8 text-left">
+      <input name="id" ng-model="site.address1" type="text" readonly
+             class="form-control">
+    </div>
+  </div>
+  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      Addr2
+    </div>
+    <div class="col-sm-8 text-left">
+      <input name="id" ng-model="site.address2" type="text" readonly
+             class="form-control">
+    </div>
+  </div>
+  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      Addr3
+    </div>
+    <div class="col-sm-8 text-left">
+      <input name="id" ng-model="site.address3" type="text" readonly
+             class="form-control">
+    </div>
+  </div>
+  <div class="row mar-b">
+    <div class="col-sm-4 text-right">
+      City, St, Zip
+    </div>
+    <div class="col-sm-8 text-left">
+      <input name="city" ng-model="site.city" type="text" readonly
+             class="form-control city">
+      <input name="state" ng-model="site.state" type="text" readonly
+             class="form-control state">
+      <input name="zip" ng-model="site.zip" type="text" readonly
+             class="form-control zip">
+    </div>
+  </div>
+</div>

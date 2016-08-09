@@ -1,0 +1,40 @@
+
+
+.cell-status {
+  width: 50px;
+  text-align: center;
+}
+
+.cell-date {
+  width: 90px;
+  text-align: left;
+}
+
+
+.cell-num,
+.cell-number,
+.cell-currency
+{
+  width: 90px;
+  text-align: right;
+}
+
+.cell-last {
+  padding-right: 10px !important;
+}
+
+.ui-grid-filter-container {
+  padding: 1px;
+}
+
+.ui-grid-top-panel {
+ font-weight: normal;
+}
+
+.cell-command {
+  cursor: pointer;
+}
+
+.cell-boolean {
+  text-align: center;
+}

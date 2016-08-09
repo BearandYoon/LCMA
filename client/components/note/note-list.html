@@ -1,0 +1,61 @@
+<div class="media note">
+  <div class="media-left text-center">
+    <!--<div class="avatar"></div>
+    <div class="text-muted">{{note.user.username | date}}</div>-->
+    <div class="calendar-day">
+      <span class="sec text-muted">
+        {{note.created_at| date: "MMM yyyy"}}
+      </span>
+      <span class="prim">
+        {{note.created_at| date: 'd'}}
+      </span>
+    </div>
+    <!--<div class="fa fa-calendar" style="font-size:1.5em;"></div>
+    <div class="text-muted">{{note.created_at| date}}</div>-->
+  </div>
+  <div class="media-body">
+    <div class="note-content clearfix media" style="padding: 15px;">
+      <div class="media-left">
+        <div class="text-center">
+          <div class="avatar avatar-xs"></div>
+          <div class="text-muted">{{note.user.first_name}}</div>
+        </div>
+      </div>
+      <div class="media-body">
+        <div class="media-heading">
+          <a class="pull-right" ng-if="note.charges.length" ng-click="viewNoteCharges()">View charges <span
+            class="badge">{{note.charges.length}}</span>
+          </a>
+          <div>{{note.content}}</div>
+        </div>
+
+        <div ng-repeat="child in note.notes | orderBy: 'created_at'" class="clearfix note-reply media">
+          <div class="media-left">
+            <div class="text-center">
+              <div class="avatar avatar-xs"></div>
+              <div class="text-muted">{{child.user.first_name}}</div>
+            </div>
+          </div>
+
+          <div class="media-body">
+            <div>{{child.content}}</div>
+            <div class="text-muted">{{child.created_at | date}}</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="new-reply">
+      <ng-form name="noteReplyForm">
+        <div class="input-group">
+          <input placeholder="Type to reply ..." type="text" class="form-control" ng-model="note.$reply.content"
+                 ng-required="true"/>
+          <span class="input-group-btn">
+            <button class="btn btn-info" type="button" ng-click="replyToNote(note, noteReplyForm )">Reply</button>
+          </span>
+        </div>
+      </ng-form>
+    </div>
+  </div>
+</div>

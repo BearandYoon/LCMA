@@ -1,0 +1,21 @@
+<a class="Popover-toggle">
+  {{ displayValue }}
+  <div class="Popover">
+    <div class="form-group">
+      <span>
+        <img class="Popover-avatar" ng-src="{{user.avatar}}">
+      </span>
+    </div>
+    <div>
+      <div>
+        <label class="fa fa-envelope"> : {{user.email}}</label>
+      </div>
+      <div>
+        <label class="fa fa-mobile"> : {{user.mobile_number}}</label>
+      </div>
+      <div>
+        <label class="fa fa-user-active">Active : {{user_state}}</label>
+      </div>
+    </div>
+  </div>
+</a>

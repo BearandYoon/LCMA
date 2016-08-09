@@ -1,0 +1,21 @@
+<div>
+  <div ng-click="close()" style="float:right;margin-top: -35px;"><i class=" fa fa-close"></i></div>
+  <form name="ListFilterForm">
+
+    <ul class="list-group list-filter">
+      <li class="list-group-item" ng-repeat="option in options">
+        <label style="display: block">
+          <input ng-change="selectionChange(option)" class="pull-right" type="checkbox" ng-model="option.selected" value="{{option.value}}">
+          {{option.label}}
+        </label>
+      </li>
+    </ul>
+
+
+    <div class="form-group">
+      <button class="btn btn-info" type="button" ng-click="applyFilter()">Apply</button>
+      <button class="btn btn-default" type="button" ng-click="clearFilter()">Clear</button>
+    </div>
+
+  </form>
+</div>

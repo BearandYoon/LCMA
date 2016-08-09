@@ -1,0 +1,15 @@
+<div ng-repeat="entry in model | orderBy: 'created_at' : true">
+  <div ng-if="entry.entity_type === 'dispute' && entry.action_key === 'create'" class="mar-all">
+    <lcma-user-pop-over ng-model="entry.user"></lcma-user-pop-over>
+    <strong>created</strong>
+    <a ui-sref="app.disputeDetails({id: entry.entity_id})">dispute</a> for the invoice on
+    {{entry.created_at | lcmaDateTime}}.
+  </div>
+  <div ng-if="entry.entity_type === 'dispute' && entry.action_key === 'update'" class="mar-all">
+    <lcma-user-pop-over ng-model="entry.user"></lcma-user-pop-over>
+    <strong>updated</strong>
+    <a ui-sref="app.disputeDetails({id: entry.entity_id})">dispute</a> for the invoice on
+    {{entry.created_at | lcmaDateTime}}.
+  </div>
+</div>
+

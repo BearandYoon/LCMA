@@ -1,0 +1,8 @@
+<div ng-repeat="entry in model | orderBy: 'created_at' : true">
+  <div ng-if="entry.entity_type === 'contract' && entry.action_key === 'update'" class="mar-all">
+    User <a ui-sref="app.userDetails({id:entry.created_by})">{{entry.user.first_name}} {{entry.user.last_name}}</a>
+    <strong>updated</strong>
+    <a ui-sref="app.disputeDetails({id: entry.entity_id})">contract</a> info.
+    {{entry.created_at | lcmaDateTime}}.
+  </div>
+</div>
